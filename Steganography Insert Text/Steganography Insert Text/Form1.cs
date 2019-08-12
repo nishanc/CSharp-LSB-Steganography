@@ -82,9 +82,9 @@ namespace Steganography_Insert_Text
             }
 
             _possibleChars = (_bitmap.Height * _bitmap.Width * 3) / 8;
-            if (_possibleChars < text.Length)
+            if (_possibleChars < text.Length || 255 < text.Length)
             {
-                MessageBox.Show(@"Text is too lengthy for the selected image. Insufficient space", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(@"Error occured. This is because either text you entered is too lengthy for the selected image, or "+Environment.NewLine+"text length exceeds 255 characters, reduce characters and retry.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
